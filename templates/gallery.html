@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+{% load static %}
+{% block content %}
+    {% include 'snippts/header.html' %}
+
+    <div class="container">
+        <div class="row">
+            {% for pic in pics %}
+
+                <div class="col-md-12 well m-t-3">
+                    <div align="center">
+                        <div class="grid_3"><h1>{{ pic.Pic_name }}</h1></div>
+                        <image width="700px" height="500px" src="{{ pic.image.url }}"/>
+                        <p class="bottom-left">{{ pic.Added_time }}</p>
+                    </div>
+                </div>
+
+            {% endfor %}
+        </div>
+    </div>
+
+    {% include 'snippts/contactus_footer.html' %}
+    {% include 'snippts/footer.html' %}
+{% endblock %}

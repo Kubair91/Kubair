@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content%}
+{% include 'snippts/header.html' %}
+    {% for Advise in Advises %}
+    <div class="container well-lg">
+                <div class="col-md 6 well m-t-3">
+                <h4>{{ Advise.Advise }}</h4>
+                <h3>{{ Advise.Quote}}</h3>
+                <p class="bottom-right">{{ Advise.Explanation}}</p>
+                <small>{{ Advise.Created_time}}</small><br>
+                <small ><b>Written By-</b></small><small><i>{{ Advise.author}}</i></small>
+                    </div>
+        </div>
+    {% endfor %}
+    {% include 'snippts/contactus_footer.html' %}
+    {% include 'snippts/footer.html' %}
+{% endblock %}
