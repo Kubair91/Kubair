@@ -33,6 +33,7 @@ url(r'^gallery/$',gallery_views.gallery, name="Gallery"),
 url(r'^signup/$', advise_views.signup, name="signup"),
 url(r'^login/$', auth_view.login, name="login"),
 url(r'^logout/$', auth_view.logout, name="logout"),
+url(r'^likepost/$',advise_views.upatelikes, name="likepost"),
 
 ]
 

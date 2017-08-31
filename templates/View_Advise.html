@@ -1,19 +1,62 @@
 {% extends 'base.html' %}
 {% load static %}
 
-{% block content%}
-{% include 'snippts/header.html' %}
+{% block content %}
+    {% include 'snippts/header.html' %}
+
+
+
     {% for Advise in Advises %}
-    <div class="container well-lg">
-                <div class="col-md 6 well m-t-3">
+        <div class="container well-lg">
+            <div class="col-md 6 well m-t-3">
                 <h4>{{ Advise.Advise }}</h4>
-                <h3>{{ Advise.Quote}}</h3>
-                <p class="bottom-right">{{ Advise.Explanation}}</p>
-                <small>{{ Advise.Created_time}}</small><br>
-                <small ><b>Written By-</b></small><small><i>{{ Advise.author}}</i></small>
-                    </div>
+                <h3>{{ Advise.Quote }}</h3>
+                <p class="bottom-right">{{ Advise.Explanation }}</p>
+                <small>{{ Advise.Created_time }}</small>
+                <br>
+                <small><b>Written By-</b></small>
+                <small><i>{{ Advise.author }}</i></small>
+            </div>
+
+            <button id="likes" data-id="{{ Advise.id }}" class="btnlikes btn btn-social-icon">Like
+                {% if Advise.likes > 0 %}{{ Advise.likes }} {% endif %}</button>
         </div>
     {% endfor %}
+    <div class="container well-lg">
+    <div class="pagination">
+        <span class="fa-step-forward">
+        {% if Advises.has_previous %}
+            <a href="?page={{ Advises.previous_page_number }}">Previous</a>
+        {% endif %}
+        <span class="current">
+            Page {{ Advises.number }} of {{ Advises.paginator.num_pages }}.</span>
+        {% if Advises.has_next %}
+            <a href="?page={{ Advises.next_page_number }}">Next</a>
+            {% endif %}
+        </span>
+    </div>
+    </div>
+
+
     {% include 'snippts/contactus_footer.html' %}
     {% include 'snippts/footer.html' %}
+{% endblock content %}
+{% block jsblock %}
+    <script>
+        $('.btnlikes').on('click', function (e) {
+            var btn=$(this);
+            e.preventDefault();
+            $.ajax({
+                url: '/likepost/',
+                type: 'GET',
+                data: {
+                    'Advise_id': btn.attr('data-id')
+                }, success: function (response) {
+                    btn.html(' Total Likes -  ' + response);
+                }
+
+            });
+
+        });
+    </script>
 {% endblock %}

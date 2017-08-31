@@ -7,6 +7,7 @@ class Advise(models.Model):
     Explanation=models.TextField(blank=False,default='Explain your advise')
     Created_time=models.DateTimeField(auto_now=True)
     author=models.ForeignKey('auth.User')
+    likes=models.IntegerField(default=0)
 
     def save_name(self):
         self.save()
