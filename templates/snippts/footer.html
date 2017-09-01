@@ -1,6 +1,5 @@
 {% load static %}
-
-<div class="footer">
+	<div class="footer">
 		<div class="container">
 			<div class="col-md-4 w3layouts_footer_grid">
 				<h2>Follow <span>Us</span></h2>
@@ -17,13 +16,19 @@
 					<input type="submit" value="">
 				</form>
 				<ul class="w3l_footer_nav">
-					<li><a href="index.html">Home</a></li>
-					<li><a href="about.html">About</a></li>
-					<li><a href="portfolio.html">Portfolio</a></li>
-					<li><a href="icons.html">Web Icons</a></li>
-					<li><a href="mail.html">Mail Us</a></li>
+					<li><a href={% url 'home' %}>Home</a></li>
+					<li><a href={% url 'Advises' %}>Advice</a></li>
+					<li><a href={% url 'Gallery' %}>Gallery</a></li>
+
+                     {% if user.is_authenticated %}
+
+                                    <li><a href={% url 'logout' %} >Logout Now</a></li>
+                                {% else %}
+                                    <li><a href={% url 'login' %} >Sign In</a></li>
+                                    <li><a href={% url 'signup' %} >Register</a></li>
+                                {% endif %}
 				</ul>
-				<p>© 2017 Attorney. All Rights Reserved | Design by <a href="https://w3layouts.com/" target="_blank">w3layouts</a></p>
+                <p>© 2017 Kubair. All Rights Reserved | Design and Developed by <a href="#" target="_blank"><b><i>Aman Upadhyay(Kubair)</i></b></a></p>
 			</div>
 			<div class="clearfix"> </div>
 		</div>
