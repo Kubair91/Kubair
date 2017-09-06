@@ -936,6 +936,16 @@ a.wthree-more:hover > span:nth-child(10) {
 	color:#999;
 }
 .w3layouts_footer_grid form {
+	border: 1px solid #fff;
+	-webkit-border-radius: 30px;
+	-moz-border-radius: 30px;
+	-o-border-radius: 30px;
+	-ms-border-radius: 30px;
+	border-radius: 30px;
+	width: 70%;
+}
+.myside{
+
     border: 1px solid #fff;
 	-webkit-border-radius: 30px;
 	-moz-border-radius: 30px;
@@ -944,7 +954,7 @@ a.wthree-more:hover > span:nth-child(10) {
     border-radius: 30px;
     width: 70%;
 }
-.w3layouts_footer_grid input[type="email"] {
+.w3layouts_footer_grid input[type="text"] {
     outline: none;
     color: #fff;
     padding: 1em 2em;
@@ -2306,7 +2316,7 @@ p {
 .w3layouts_footer_grid ,.w3layouts_footer_grid{
     padding: 0;
 }
-.w3layouts_footer_grid input[type="email"] { 
+.w3layouts_footer_grid input[type="email"] {
     padding: 0.8em 1.5em;
     font-size: 13px; 
 }
@@ -2339,7 +2349,7 @@ p {
 .banner-w3lstext.agileits-w3layouts {
     padding: 1.5em 0;
 }
-.contact-left input[type="text"], .contact-left input[type="email"],.contact-right textarea { 
+.contact-left input[type="text"], .contact-left input[type="email"],.contact-right textarea {
     font-size: 0.9em; 
 }
 .contact-right input[type="submit"] { 
@@ -2497,7 +2507,7 @@ a.wthree-more {
 .w3layouts_footer_grid h2:after {
     left: 44%;
 }
-.w3layouts_footer_grid input[type="email"] { 
+.w3layouts_footer_grid input[type="email"] {
     width: 82%; 
 }
 .w3l_footer_nav li {

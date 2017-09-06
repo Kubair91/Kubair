@@ -11,10 +11,11 @@
 				</ul>
 			</div>
 			<div class="col-md-8 w3layouts_footer_grid">
-				<form action="#" method="post">
-					<input type="email" name="Email" placeholder="Email..." required="">
-					<input type="submit" value="">
-				</form>
+				<div class="myside">
+					<input type="text" placeholder="Search..." required="" class="item32">
+					<input type="submit" value="" id="btn-search32">
+                    <div style="color: red" class="result32"></div>
+				</div>
 				<ul class="w3l_footer_nav">
 					<li><a href={% url 'home' %}>Home</a></li>
 					<li><a href={% url 'Advises' %}>Advice</a></li>
@@ -28,8 +29,42 @@
                                     <li><a href={% url 'signup' %} >Register</a></li>
                                 {% endif %}
 				</ul>
-                <p>© 2017 Kubair. All Rights Reserved | Design and Developed by <a href="#" target="_blank"><b><i>Aman Upadhyay(Kubair)</i></b></a></p>
+                <p>© 2017 Kubair. All Rights Reserved | Design and Developed by <a href="#" target="_blank"><b><i>Aman Upadhyay (Kubair)</i></b></a></p>
 			</div>
 			<div class="clearfix"> </div>
 		</div>
 	</div>
+{% block js2block %}
+    <script>
+        $('#btn-search32').on('click', function () {
+            var content = $('.item32').val();
+            var container = $('.result32');
+            if (content == "") {
+                container.slideUp()
+            }
+            else {
+                $.ajax({
+                    url: '/search/',
+                    type: 'GET',
+                    data: {'q': content},
+                    success: function (response) {
+                        container.html("");
+                        for (i=0;i<response.length;i++){
+                            data=response[i]['fields'];
+                            id=response[i]['pk'];
+                            console.log(id);
+                            container.append('<div class="card-block">&nbsp&nbsp<a class="link" href="/singlepost/'+id+'">'+ data['Advise']+ '</a></div></br>');
+                        }
+                        container.slideDown();
+                    },
+                    error: function (response) {
+
+                        container.text("No Results Found");
+                    }
+
+                });
+            }
+        });
+
+    </script>
+{% endblock %}
