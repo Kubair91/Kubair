@@ -49,17 +49,22 @@
                     data: {'q': content},
                     success: function (response) {
                         container.html("");
-                        for (i=0;i<response.length;i++){
-                            data=response[i]['fields'];
-                            id=response[i]['pk'];
-                            console.log(id);
-                            container.append('<div class="card-block">&nbsp&nbsp<a class="link" href="/singlepost/'+id+'">'+ data['Advise']+ '</a></div></br>');
+                        if (response.length==0){
+                            container.append('<div class="card-block"><p style="color:red">&nbsp&nbspNo Results Found :-(</p></div>')
+                        }
+                        else {
+                            for (i = 0; i < response.length; i++) {
+                                data = response[i]['fields'];
+                                id = response[i]['pk'];
+                                console.log(id);
+                                container.append('<div class="card-block">&nbsp&nbsp<a class="link" href="/singlepost/' + id + '">' + data['Advise'] + '</a></div></br>');
+                            }
                         }
                         container.slideDown();
                     },
                     error: function (response) {
 
-                        container.text("No Results Found");
+                        container.text("ERROR Not Working :-(");
                     }
 
                 });
