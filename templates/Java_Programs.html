@@ -6,31 +6,31 @@
 
 
 
-    {% for Advise in Advises %}
+    {% for prog in javap %}
         <div class="container well-lg">
             <div class="col-md 6 well m-t-3">
-                <h4>{{ Advise.Advise }}</h4>
-                <h3>{{ Advise.Quote }}</h3>
-                <p class="bottom-right">{{ Advise.Explanation }}</p>
-                <small>{{ Advise.Created_time }}</small>
+                <h4>Program - {{ prog.title }}</h4>
+                <br>
+                <p class="bottom-right" style="color:#ff5722">Code - {{ prog.Program_code | linebreaks  }}</p>
+                <small>{{ prog.Created_time }}</small>
                 <br>
                 <small><b>Written By-</b></small>
-                <small><i>{{ Advise.author }}</i></small>
+                <small><i>{{ prog.author }}</i></small>
             </div>
 
-            <button id="likes" data-id="{{ Advise.id }}" class="btnlikes btn btn-social-icon">Like
-                {% if Advise.likes > 0 %}{{ Advise.likes }} {% endif %}</button>
+            <button id="likes" data-id="{{ prog.id }}" class="btnlikes btn btn-social-icon">Like
+                {% if prog.likes > 0 %}{{ prog.likes }} {% endif %}</button>
         </div>
     {% endfor %}
     <div class="container well-lg">
     <div class="pagination">
-        {% if Advises.has_previous %}
-            <a href="?page={{ Advises.previous_page_number }}"><span class="fa fa-hand-o-left fa-2x" style="color: #ff5722"></span></a>
+        {% if javap.has_previous %}
+            <a href="?page={{ javap.previous_page_number }}"><span class="fa fa-hand-o-left fa-2x" style="color: #ff5722"></span></a>
         {% endif %}
         <span class="current">
-           <strong> Page {{ Advises.number }} of {{ Advises.paginator.num_pages }}.</strong></span>
-        {% if Advises.has_next %}
-            <a href="?page={{ Advises.next_page_number }}"><span class="fa fa-hand-o-right fa-2x" style="color: #ff5722"></span></a>
+            Page {{ javap.number }} of {{ javap.paginator.num_pages }}.</span>
+        {% if javap.has_next %}
+            <a href="?page={{ javap.next_page_number }}"><span class="fa fa-hand-o-right fa-2x" style="color: #ff5722"></span></a>
             {% endif %}
         </span>
     </div>
@@ -49,7 +49,7 @@
                 url: '/likepost/',
                 type: 'GET',
                 data: {
-                    'Advise_id': btn.attr('data-id')
+                    'Pythonp_id': btn.attr('data-id')
                 }, success: function (response) {
                     btn.html(' Total Likes -  ' + response);
                 }

@@ -3,23 +3,25 @@
 {% load static %}
 {% block content %}
     {% include 'snippts/header.html' %}
-
     <div class="container">
-        <div class="row">
-            {% for pic in pics %}
 
-                <div class="col-md-12 well m-t-3">
-                    <div align="center">
-                        <div class="grid_3"><h1>{{ pic.Pic_name }}</h1></div>
-                        <image width="700px" height="500px" src="{{ pic.image.url }}"/>
-                        <p class="bottom-left">{{ pic.Added_time }}</p>
+        <div class="filtr-container">
+            {% for pic in pics %}
+                <div class="col-md-4 col-sm-4 col-xs-6 filtr-item" data-category="1" data-sort="">
+                    <div class="agileits_portfolio_grid">
+                        <a class="group1" href="{{ pic.image.url }}">
+                            <img class="img-responsive" src="{{ pic.image.url }}" alt=""/>
+                            <div class="w3_textbox">
+                                <h4>{{ pic.Pic_name }}</h4>
+                                <p>{{ pic.Added_time }}</p>
+                            </div>
+                        </a>
                     </div>
                 </div>
-
             {% endfor %}
         </div>
     </div>
-
+    <div class="clearfix"> </div>
     {% include 'snippts/contactus_footer.html' %}
     {% include 'snippts/footer.html' %}
 {% endblock %}

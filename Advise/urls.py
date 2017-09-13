@@ -19,9 +19,11 @@ from django.contrib import admin
 from django.contrib.auth import views as auth_view
 from django.views.static import serve
 
-from Advise import settings
 from Advises import views as advise_views
 from gallery import views as gallery_views
+from programs import views as programs_views
+
+from Advise import settings
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
@@ -34,7 +36,11 @@ url(r'^signup/$', advise_views.signup, name="signup"),
 url(r'^login/$', auth_view.login, name="login"),
 url(r'^logout/$', auth_view.logout, name="logout"),
 url(r'^likepost/$',advise_views.upatelikes, name="likepost"),
-url(r'^search/$',advise_views.ajax_serach, name="search")
+url(r'^search/$',advise_views.ajax_serach, name="search"),
+url(r'^python/$', programs_views.Python_Code, name="Python"),
+url(r'^java/$', programs_views.Java_Code, name="Java"),
+url(r'^c/$', programs_views.C_Code, name="C"),
+url(r'^select/$', programs_views.Selection, name="Selection"),
 
 ]
 

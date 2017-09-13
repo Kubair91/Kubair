@@ -1,7 +1,7 @@
 from django.shortcuts import render
 
 # Create your views here.
-from gallery.models import Add_Picture
+from .models import Add_Picture
 
 
 def gallery(request):

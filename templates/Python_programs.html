@@ -1,0 +1,61 @@
+{% extends 'index.html' %}
+{% load static %}
+
+{% block content %}
+    {% include 'snippts/header.html' %}
+
+
+
+    {% for prog in pythonp %}
+        <div class="container well-lg">
+            <div class="col-md 6 well m-t-3">
+                <h4>Program - {{ prog.title }}</h4>
+                <br>
+                <p class="bottom-right" style="color:#ff5722">Code - {{ prog.Program_code | linebreaks }}</p>
+                <small>{{ prog.Created_time }}</small>
+                <br>
+                <small><b>Written By-</b></small>
+                <small><i>{{ prog.author }}</i></small>
+            </div>
+
+            <button id="likes" data-id="{{ prog.id }}" class="btnlikes btn btn-social-icon">Like
+                {% if prog.likes > 0 %}{{ prog.likes }} {% endif %}</button>
+        </div>
+    {% endfor %}
+    <div class="container well-lg">
+    <div class="pagination">
+        {% if pythonp.has_previous %}
+            <a href="?page={{ pythonp.previous_page_number }}"><span class="fa fa-hand-o-left fa-2x" style="color: #ff5722"></span></a>
+        {% endif %}
+        <span class="current">
+            Page {{ pythonp.number }} of {{ pythonp.paginator.num_pages }}.</span>
+        {% if pythonp.has_next %}
+            <a href="?page={{ pythonp.next_page_number }}"><span class="fa fa-hand-o-right fa-2x" style="color: #ff5722"></span></a>
+            {% endif %}
+        </span>
+    </div>
+    </div>
+
+
+    {% include 'snippts/contactus_footer.html' %}
+    {% include 'snippts/footer.html' %}
+{% endblock content %}
+{% block jsblock %}
+    <script>
+        $('.btnlikes').on('click', function (e) {
+            var btn=$(this);
+            e.preventDefault();
+            $.ajax({
+                url: '/likepost/',
+                type: 'GET',
+                data: {
+                    'Pythonp_id': btn.attr('data-id')
+                }, success: function (response) {
+                    btn.html(' Total Likes -  ' + response);
+                }
+
+            });
+
+        });
+    </script>
+{% endblock %}
