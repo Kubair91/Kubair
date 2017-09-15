@@ -24,8 +24,7 @@ SECRET_KEY = '1gwmu%q@sqj2-v9&yw)9f-(#4k69ds7wmn6b0+=y#rhu&qjg&k'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
-
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['127.0.0.1']
 
 
 # Application definition
@@ -129,3 +128,4 @@ MEDIA_ROOT = os.path.join(BASE_DIR, "media")
 
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
 LOGIN_REDIRECT_URL='/'
+

@@ -19,7 +19,7 @@
 
                                 {% if user.is_authenticated %}
 
-                                    <li><a href={% url 'logout' %} >Logout Now</a></li>
+                                    <li><a href="{% url 'logout' %}?next=custom_logout/" >Logout Now</a></li>
                                 {% else %}
                                     <li><a href={% url 'login' %} >Sign In</a></li>
                                     <li><a href={% url 'signup' %} >Register</a></li>

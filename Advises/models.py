@@ -1,4 +1,7 @@
+from django.contrib.auth.base_user import AbstractBaseUser
+from django.contrib.auth.models import PermissionsMixin, UserManager
 from django.db import models
+from django.utils.translation import ugettext_lazy as _
 
 # Create your models here.
 class Advise(models.Model):
@@ -14,4 +17,14 @@ class Advise(models.Model):
 
     def __str__(self):
         return self.Advise+" Added By "+self.author.username
+
+
+
+
+
+
+
+
+
+
 

@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+{% load static %}
+{% block content%}
+{% include 'snippts/header.html' %}
+<div class="container well-lg">
+<div class="well m-t-3">
+
+
+
+
+
+
+
+    <h4>{{ user.id }}</h4>
+    <h4>{{ user.username }}</h4>
+    <h4>{{ user.first_name }}</h4>
+    <h4>{{ user.last_name }}</h4>
+    <h4>{{ user.email}}</h4>
+    <h4>{{ user.password}}</h4>
+
+
+      </div>
+    </div>
+</div>
+    {% include 'snippts/contactus_footer.html' %}
+    {% include 'snippts/footer.html' %}
+{% endblock %}

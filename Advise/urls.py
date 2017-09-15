@@ -22,7 +22,7 @@ from django.views.static import serve
 from Advises import views as advise_views
 from gallery import views as gallery_views
 from programs import views as programs_views
-
+from django.conf.urls import handler404, handler500
 from Advise import settings
 
 urlpatterns = [
@@ -34,15 +34,21 @@ url(r'^Advises/$',advise_views.View_Advise, name="Advises"),
 url(r'^gallery/$',gallery_views.gallery, name="Gallery"),
 url(r'^signup/$', advise_views.signup, name="signup"),
 url(r'^login/$', auth_view.login, name="login"),
-url(r'^logout/$', auth_view.logout, name="logout"),
+url(r'^logout$', auth_view.logout,name="logout"),
 url(r'^likepost/$',advise_views.upatelikes, name="likepost"),
 url(r'^search/$',advise_views.ajax_serach, name="search"),
 url(r'^python/$', programs_views.Python_Code, name="Python"),
 url(r'^java/$', programs_views.Java_Code, name="Java"),
 url(r'^c/$', programs_views.C_Code, name="C"),
 url(r'^select/$', programs_views.Selection, name="Selection"),
+url(r'^User_profile/$',advise_views.User_profile, name="User_Profile"),
 
 ]
+
+
+handler404 = gallery_views.error_404
+handler500 = gallery_views.error_500
+
 
 if settings.DEBUG:
     urlpatterns = urlpatterns + [

@@ -81,3 +81,18 @@ def ajax_serach(request):
     else:
         print('not ajax')
     return redirect('/')
+
+def User_profile(request):
+    context = {'title': 'User Profile'}
+    return render(request, 'User_profile.html', context)
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,23 @@
+{% extends 'index.html' %}
+{% load static %}
+{% block content %}
+    {% include 'snippts/header.html' %}
+    <div class="container well-lg">
+        <div class="col-md 6 well m-t-3">
+<center>
+            <i class="fa fa-wrench fa-3x" aria-hidden="true"></i>
+            <i class="fa fa-cogs fa-5x" aria-hidden="true"><strong>      5<span>0</span>0 ERROR</strong></i>
+            <h2 class style="color:#ff5722">Oops Something Wrong</h2>
+     <br>
+            <h2>Sorry for the inconvenience our servers are refreshing or down please try again in some time</h2>
+    <br>
+    <h3><strong>Click here to visit our</strong></h3>
+    <br>
+    <h3><a href={% url 'home' %}><i class="fa fa-home" style="color: #ff5722"></i>Home Page</a></h3>
+
+</center>
+        </div>
+    </div>
+    {% include 'snippts/contactus_footer.html' %}
+    {% include 'snippts/footer.html' %}
+{% endblock %}}
