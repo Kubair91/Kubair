@@ -1,0 +1,134 @@
+{% load static %}
+{% block menucss %}
+    <style>
+
+
+.parent2 {
+  top:51px;
+  left:14px;
+  position:fixed;
+ display:block;
+  width:62px;
+  height:62px;
+  background-color:white;
+  border-radius:50%;
+  z-index:20;
+  -webkit-box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.75);
+-moz-box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.75);
+box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.75);
+}
+.test1 {
+  width:60%;
+  height:60%;
+  background-color:white;
+  border-radius:50%;
+  position:absolute;
+  color:black;
+  text-align:center;
+  line-height:47px;
+    top:25%;
+  left:25%;
+  z-index:19;
+  transition: all 500ms cubic-bezier(0.680, -0.550, 0.265, 1.550);
+    position:absolute;
+}
+.test2 {
+  width:60%;
+  height:60%;
+  background-color:white;
+  border-radius:50%;
+  position:absolute;
+  color:black;
+  text-align:center;
+  line-height:47px;
+    top:25%;
+  left:25%;
+  z-index:19;
+  transition: all 500ms cubic-bezier(0.680, -0.550, 0.265, 1.550) .2s;
+}
+.test3 {
+  width:60%;
+  height:60%;
+  background-color:white;
+  border-radius:50%;
+  position:absolute;
+  color:black;
+  text-align:center;
+  line-height:47px;
+    top:25%;
+  left:25%;
+  transition: all 500ms cubic-bezier(0.680, -0.550, 0.265, 1.550) .4s;
+}
+  .test4 {
+  width:60%;
+  height:60%;
+  background-color:white;
+  border-radius:50%;
+  position:absolute;
+  color:black;
+  text-align:center;
+  line-height:47px;
+  top:25%;
+  left:25%;
+  transition: all 500ms cubic-bezier(0.680, -0.550, 0.265, 1.550) .6s;
+}
+.mask2 {
+  top:55px;
+  left:19px;
+  width:51px;
+  height:57px;
+  background:white;
+  border-radius:50%;
+  position:absolute;
+  z-index:21;
+  color:white;
+  text-align:center;
+  line-height:80px;
+  cursor:pointer;
+  position:fixed;
+}
+
+    </style>
+    {% endblock %}
+<div class="parent2">
+    <a href={% url 'bird' %}>
+  <div class="test1"><i class="fa fa-meh-o  fa-spin fa-2x"></i></div>
+</a>
+  <div class="test2"><i class="fa fa-frown-o fa-spin fa-2x "></i></div>
+
+  <div class="test3"><i class="fa fa-magic  fa-spin fa-2x "></i></div>
+
+  <div class="test4"><i class="fa fa-cog fa-spin fa-2x"></i></div>
+
+    <div class="mask2" style="color:white ;"><img class="img-responsive" src="{% static 'images/Ano.png' %}"/></div>
+</div>
+
+
+{% block menujsblock %}
+    <script>
+    $(document).ready(function() {
+
+  var active1 = false;
+  var active2 = false;
+  var active3 = false;
+  var active4 = false;
+
+    $('.parent2').on('mousedown touchstart', function() {
+
+    if (!active1) $(this).find('.test1').css({'background-color': 'FF572', 'transform': 'translate(0px,125px)'});
+    else $(this).find('.test1').css({'background-color': 'FF572', 'transform': 'none'});
+     if (!active2) $(this).find('.test2').css({'background-color': 'FF572', 'transform': 'translate(60px,105px)'});
+    else $(this).find('.test2').css({'background-color': 'FF572', 'transform': 'none'});
+      if (!active3) $(this).find('.test3').css({'background-color': 'FF572', 'transform': 'translate(105px,60px)'});
+    else $(this).find('.test3').css({'background-color': 'FF572', 'transform': 'none'});
+      if (!active4) $(this).find('.test4').css({'background-color': 'FF572', 'transform': 'translate(125px,0px)'});
+    else $(this).find('.test4').css({'background-color': 'FF572', 'transform': 'none'});
+    active1 = !active1;
+    active2 = !active2;
+    active3 = !active3;
+    active4 = !active4;
+
+    });
+});
+    </script>
+{% endblock %}

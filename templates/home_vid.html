@@ -1,0 +1,114 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Testing video Background</title>
+    <style>
+        body {
+  margin: 0;
+  background: #000;
+}
+video {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    z-index: -100;
+    transform: translateX(-50%) translateY(-50%);
+ background: url('//demosthenes.info/assets/images/polina.jpg') no-repeat;
+  background-size: cover;
+  transition: 1s opacity;
+}
+.stopfade {
+   opacity: .5;
+}
+img {
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    padding: 5px;
+    width: 150px;
+}
+
+#centerblock {
+  font-family: Agenda-Light, Agenda Light, Agenda, Arial Narrow, sans-serif;
+  font-weight:100;
+  background: rgba(0,0,0,0.3);
+  color: white;
+  padding: 1rem;
+  width: 98%;
+  margin:0rem;
+  float: right;
+  font-size: 1.2rem;
+}
+h1 {
+  font-size: 3rem;
+  text-transform: uppercase;
+  margin-top: 0;
+  letter-spacing: .3rem;
+}
+#centerblock button {
+  display: block;
+  width: 80%;
+  padding: .4rem;
+  border: none;
+  margin: 1rem auto;
+  font-size: 1.3rem;
+  background: rgba(255,255,255,0.23);
+  color: #fff;
+  border-radius: 3px;
+  cursor: pointer;
+  transition: .3s background;
+}
+#centerblock button:hover {
+   background: rgba(0,0,0,0.5);
+}
+
+a {
+  display: inline-block;
+  color: #fff;
+  text-decoration: none;
+  background:rgba(0,0,0,0.5);
+  padding: .5rem;
+  transition: .6s background;
+}
+a:hover{
+  background:rgba(0,0,0,0.9);
+}
+@media screen and (max-width: 500px) {
+  div{width:70%;}
+}
+@media screen and (max-device-width: 800px) {
+  html { background: url(https://thenewcode.com/assets/images/polina.jpg) #000 no-repeat center center fixed; }
+  #bgvid { display: none; }
+}
+    </style>
+</head>
+<body>
+<video poster="{% static 'images/home_poster.jpg' %}" id="bgvid" playsinline autoplay muted loop>
+  <!-- WCAG general accessibility recommendation is that media such as background video play through only once. Loop turned on for the purposes of illustration; if removed, the end of the video will fade in the same way created by pressing the "Pause" button  -->
+<source src="{% static 'videos/home_video.webm' %}" type="video/webm">
+<source src="{% static 'videos/home_video.mp4' %}" type="video/mp4">
+</video>
+<div id="centerblock">
+    <center>
+<img src="{% static 'images/ano_home.png' %}">
+        <h1>WELCOME</h1>
+        <h2>I am glad that your are here</h2>
+<p>This Website is Developed and Desgined by KUBAIR just for study purposes</p>
+<p>If you like this website please share it with your friends and dont forget to click on contact us button and give us a view about our work</p>
+        <p>I love to here about its pros and cons please share your views with me and help me to make it more reliable and userfriendly </p>
+        <p>Thanking You</p>
+        <p>Aman Upadhyay aka Kubair</p>
+        <p>To view my website</p>
+
+        <button onclick="location.href='{% url 'home' %}'">Click Here</button>
+
+        <p>© 2017 Kubair. All Rights Reserved | Design and Developed by <a href="#" target="_blank"><b><i>Aman Upadhyay (Kubair)</i></b></a></p>
+</center>
+</div>
+</body>
+</html>

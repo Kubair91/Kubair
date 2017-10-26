@@ -27,7 +27,10 @@ from Advise import settings
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
-    url(r'^$',advise_views.home,name="home"),
+
+url(r'^home/$',advise_views.home,name="home"),
+url(r'^$', advise_views.home_vid, name="home_vid"),
+
 url(r'^base/$',advise_views.base, name="base"),
 #url(r'^Advises/$',views.View_Advise, name="Advises"),
 url(r'^Advises/$',advise_views.View_Advise, name="Advises"),
@@ -42,6 +45,8 @@ url(r'^java/$', programs_views.Java_Code, name="Java"),
 url(r'^c/$', programs_views.C_Code, name="C"),
 url(r'^select/$', programs_views.Selection, name="Selection"),
 url(r'^User_profile/$',advise_views.User_profile, name="User_Profile"),
+url(r'^bird/$',advise_views.bird, name="bird"),
+url(r'^custom_logout/$', advise_views.custom_logout,name="custom_logout"),
 
 ]
 

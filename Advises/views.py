@@ -37,6 +37,10 @@ def home(request):
     contex = {'title': 'home'}
     return render(request, 'home.html', contex)
 
+def home_vid(request):
+    contex = {'title': 'home_vid'}
+    return render(request, 'home_vid.html', contex)
+
 
 def signup(request):
     contex = {}
@@ -87,6 +91,13 @@ def User_profile(request):
     return render(request, 'User_profile.html', context)
 
 
+def bird(request):
+    context = {'title': 'bird'}
+    return render(request, 'bird.html', context)
+
+def custom_logout(request):
+    context = {'title': 'custom_logout'}
+    return render(request, 'custom_logout.html', context)
 
 
 

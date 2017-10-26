@@ -34,7 +34,7 @@ body a:hover,body a:focus{
 	outline: none;
 } 
 /*-- banner --*/  
-.banner{ 
+.banner{
 	background:url(../images/bg.jpg)no-repeat center 0px;
 	-webkit-background-size:cover;
 	-moz-background-size:cover;
@@ -2544,3 +2544,4 @@ a.wthree-more {
 }
 }
 /*-- //responsive-design --*/
+
